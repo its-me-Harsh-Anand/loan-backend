@@ -2,12 +2,21 @@ const router = require("express").Router();
 
 let User = require("../models/user.model");
 
-// Finding user by username
+// Finding user by number
 
-router.route("/username/:username").get((req, res) => {
-  findUser(req.params.username, (err, user) => {
+router.route("/mobile/:number").get((req, res) => {
+  findUser(req.params.number, (err, user) => {
     if (user) {
-      res.json({ messsage: "User found", stat: true, user: user });
+      res.json({
+        messsage: "User found",
+        stat: true,
+        user: {
+          id: user._id,
+          password: user.password,
+          mobile: user.user_mobile,
+          fname: user.user_fname,
+        },
+      });
     } else {
       res.json({ message: "User not found", stat: false, error: err });
     }
@@ -60,7 +69,7 @@ router.route("/register").post(async (req, res) => {
     bank_name,
     bank_acc_holder_name,
     bank_acc_no,
-    bank_ifsc
+    bank_ifsc,
   });
 
   newUser
@@ -72,16 +81,145 @@ router.route("/register").post(async (req, res) => {
         id: user._id,
       })
     )
-    .catch((err) =>{
-      res.status(400).json(err)
-      console.log(err)
-    }
-    );
+    .catch((err) => {
+      res.status(400).json(err);
+      console.log(err);
+    });
 });
 
+// Updating step-1 of Loan
+router.route("/update/step1/:id").post((req, res) => {
+  User.findByIdAndUpdate(req.params.id)
+    .then((user) => {
+      (user.kyc_adhr_no = req.body.kyc_adhr_no),
+        (user.kyc_pan_no = req.body.kyc_pan_no);
+
+      user
+        .save()
+        .then(() => res.json({ message: "Step 1 updated", stat : true }))
+        .catch((err) =>
+          res.json({
+            message: "Error while updating step 1",
+            error: err,
+            stat: false,
+          })
+        );
+    })
+    .catch((err) => {
+      console.log(err);
+      res.json({
+        message: "Error in finding user while updating step 1",
+        stat: false,
+        error: err,
+      });
+    });
+});
+
+// Updating step-2 of Loan
+router.route("/update/step2/:id").post((req, res) => {
+  User.findByIdAndUpdate(req.params.id)
+    .then((user) => {
+      (user.user_fname = req.body.user_fname),
+        (user.whatsapp_no = req.body.whatsapp_no),
+        (user.user_email = req.body.user_email),
+        (user.user_address = req.body.user_address),
+        (user.pincode = req.body.pincode),
+        (user.dist = req.body.dist),
+        (user.state = req.body.state);
+
+      user
+        .save()
+        .then(() => res.json({ message: "Step 2 updated" , stat: true}))
+        .catch((err) =>
+          res.json({
+            message: "Error while updating step 2",
+            error: err,
+            stat: false,
+          })
+        );
+    })
+    .catch((err) => {
+      console.log(err);
+      res.json({
+        message: "Error in finding user while updating step 2",
+        stat: false,
+        error: err,
+      });
+    });
+});
+
+
+
+// Updating step-3 of Loan
+router.route("/update/step3/:id").post((req, res) => {
+  User.findByIdAndUpdate(req.params.id)
+    .then((user) => {
+        user.loan_amount = req.body.loan_amount
+        user.loan_registration_fee = req.body.loan_registration_fee
+        user.loan_tenure = req.body.loan_tenure
+        user.loan_type = req.body.loan_type
+        user.loan_interest_rate = req.body.loan_interest_rate
+        user.loan_emi = req.body.loan_emi
+
+      user
+        .save()
+        .then(() => res.json({ message: "Step 3 updated" , stat: true}))
+        .catch((err) =>
+          res.json({
+            message: "Error while updating step 3",
+            error: err,
+            stat: false,
+          })
+        );
+    })
+    .catch((err) => {
+      console.log(err);
+      res.json({
+        message: "Error in finding user while updating step 3",
+        stat: false,
+        error: err,
+      });
+    });
+});
+
+// Updating step-4 of Loan
+router.route("/update/step4/:id").post((req, res) => {
+  User.findByIdAndUpdate(req.params.id)
+    .then((user) => {
+        user.bank_name = req.body.bank_name
+        user.bank_acc_holder_name = req.body.bank_acc_holder_name
+        user.bank_ifsc = req.body.bank_ifsc
+        user.bank_acc_no = req.body.bank_acc_no
+
+      user
+        .save()
+        .then(() => res.json({ message: "Step 4 updated" , stat: true}))
+        .catch((err) =>
+          res.json({
+            message: "Error while updating step 4",
+            error: err,
+            stat: false,
+          })
+        );
+    })
+    .catch((err) => {
+      console.log(err);
+      res.json({
+        message: "Error in finding user while updating step 4",
+        stat: false,
+        error: err,
+      });
+    });
+});
+
+
+
+
+
+
 // Function for finding existing user
-function findUser(username, callback) {
-  User.findOne({ username: username }, function (err, userObj) {
+function findUser(number, callback) {
+  User.findOne({ user_mobile: number }, function (err, userObj) {
     if (err) {
       return callback(err);
     } else if (userObj) {

@@ -22,5 +22,6 @@ app.use(express.urlencoded({ extended: true }));
 //Import Route
 app.use('/verify', require('./routes/verify'));
 app.use('/user', require('./routes/user'))
+app.use('/message', require('./routes/message'))
 
 module.exports = app;

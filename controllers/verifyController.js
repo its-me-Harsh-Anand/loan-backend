@@ -6,7 +6,7 @@ exports.getCode = async (req, res) => {
         .services(process.env.VERIFY_SERVICE_SID)
         .verifications
         .create({
-            to: `+${req.query.phonenumber}`,
+            to: `+91${req.query.phonenumber}`,
             channel: req.query.channel
         })
         .then(data => {
@@ -20,7 +20,7 @@ exports.verifyCode = async (req, res) => {
         .services(process.env.VERIFY_SERVICE_SID)
         .verificationChecks
         .create({
-            to: `+${req.query.phonenumber}`,
+            to: `+91${req.query.phonenumber}`,
             code: req.query.code
         })
         .then(data => {
