@@ -1,4 +1,4 @@
-const { default: axios } = require('axios')
+const axios = require('axios')
 
 const client = require('twilio')(process.env.ACCOUNT_SID, process.env.AUTH_TOKEN)
 const router = require("express").Router()
