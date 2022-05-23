@@ -1,4 +1,5 @@
 const axios = require('axios')
+const cors = require('cors')
 
 const client = require('twilio')(process.env.ACCOUNT_SID, process.env.AUTH_TOKEN)
 const router = require("express").Router()
@@ -6,7 +7,7 @@ const router = require("express").Router()
 
 
 
-router.route('/sendmessage/:id').post((req, res)=>{
+router.route('/sendmessage/:id').post( cors(), (req, res)=>{
     const id = req.params.id
 
     axios.get(`http://localhost:8000/user/${id}`)
