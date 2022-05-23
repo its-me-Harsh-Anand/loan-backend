@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
+const path = require("path")
 
 const app = express();
 
@@ -24,5 +25,12 @@ app.use("/verify", require("./routes/verify"));
 app.use("/user", require("./routes/user"));
 app.use("/message", require("./routes/message"));
 app.use("/email", require("./routes/email"))
+
+
+// Setting Route
+app.get('/', (req, res)=>{
+  res.sendFile(path.join(__dirname + "/index.html"))
+})
+
 
 module.exports = app;
