@@ -10,18 +10,20 @@ router.route("/mobile/:number").get((req, res) => {
       res.json({
         messsage: "User found",
         stat: true,
-        user: {
-          id: user._id,
-          password: user.password,
-          mobile: user.user_mobile,
-          fname: user.user_fname,
-        },
+        user: user,
       });
     } else {
       res.json({ message: "User not found", stat: false, error: err });
     }
   });
 });
+
+// Finding user by id
+router.route('/:id').get((req, res)=>{
+  User.findById(req.params.id)
+  .then(user => res.json(user))
+  .catch(err => res.json({message: "User not found", stat: false, error: err}))
+})
 
 // Registering new user
 
