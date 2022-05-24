@@ -4,7 +4,7 @@ const axios = require('axios')
 
 router.route('/sendemail/:id').post((req, res)=>{
     const id = req.params.id
-    res.header("Access-Control-Allow-Origin", "true")
+    req.header("Access-Control-Allow-Origin", "true")
     axios.get(`${process.env.BACKEND_URL}/user/${id}`)
     .then(res => res.data)
     .then(data => {

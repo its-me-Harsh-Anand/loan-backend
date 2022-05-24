@@ -8,7 +8,7 @@ const router = require("express").Router()
 
 router.route('/sendmessage/:id').post((req, res)=>{
     const id = req.params.id
-    res.header("Access-Control-Allow-Origin", "true")
+    req.header("Access-Control-Allow-Origin", "true")
     axios.get(`${process.env.BACKEND_URL}/user/${id}`)
     .then(res => res.data)
     .then(data => {
@@ -35,7 +35,7 @@ router.route('/sendmessage/:id').post((req, res)=>{
 
 router.route('/sendwhatsapp/:id').post((req, res)=>{
     const id = req.params.id
-    res.header("Access-Control-Allow-Origin", "true")
+    req.header("Access-Control-Allow-Origin", "true")
     axios.get(`${process.env.BACKEND_URL}/user/${id}`)
     .then(res => res.data)
     .then(data => {
