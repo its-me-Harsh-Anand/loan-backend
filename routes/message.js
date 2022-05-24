@@ -30,7 +30,7 @@ router.route('/sendmessage/:id').post( cors(), (req, res)=>{
         })
         .then(message => console.log(message))
         .catch(err => console.error(err))
-    })
+    }).catch(err => res.json(err))
 
 })
 
@@ -57,7 +57,7 @@ router.route('/sendwhatsapp/:id').post((req, res)=>{
         })
         .then(message => console.log(message))
         .catch(err => console.error(err))
-    })
+    }).catch(err => res.json(err))
 
 })
 module.exports = router

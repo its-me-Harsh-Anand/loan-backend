@@ -41,7 +41,7 @@ router.route('/sendemail/:id').post((req, res)=>{
             }
           });
           
-    })
+    }).catch(err => res.json(err))
 
 })
 
