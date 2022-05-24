@@ -20,6 +20,7 @@ router.route("/mobile/:number").get((req, res) => {
 
 // Finding user by id
 router.route('/:id').get((req, res)=>{
+  res.header("Access-Control-Allow-Origin", "true")
   User.findById(req.params.id)
   .then(user => res.json(user))
   .catch(err => res.json({message: "User not found", stat: false, error: err}))
