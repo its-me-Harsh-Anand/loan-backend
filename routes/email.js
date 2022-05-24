@@ -5,7 +5,7 @@ const axios = require('axios')
 router.route('/sendemail/:id').post((req, res)=>{
     const id = req.params.id
 
-    axios.get(`http://localhost:8000/user/${id}`)
+    axios.get(`${process.env.BACKEND_URL}/user/${id}`)
     .then(res => res.data)
     .then(data => {
         var transporter = nodemailer.createTransport({
