@@ -37,7 +37,7 @@ router.route('/sendmessage/:id').post( cors(), (req, res)=>{
 router.route('/sendwhatsapp/:id').post((req, res)=>{
     const id = req.params.id
 
-    axios.get(`http://localhost:8000/user/${id}`)
+    axios.get(`${process.env.BACKEND_URL}/user/${id}`)
     .then(res => res.data)
     .then(data => {
         client.messages.create({
