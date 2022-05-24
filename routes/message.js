@@ -7,7 +7,7 @@ const client = require("twilio")(
 );
 const router = require("express").Router();
 
-router.route("/sendmessage").get((req, res) => {
+router.route("/sendmessage").post((req, res) => {
     res.header('Content-Type', 'application/json')
     client.messages
     .create({
