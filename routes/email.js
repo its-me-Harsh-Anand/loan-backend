@@ -18,13 +18,9 @@ router.route('/sendemail').post((req, res)=>{
     text: req.body.text
   };
   
-  transporter.sendMail(mailOptions, function(error, info){
-    if (error) {
-      console.log(error);
-    } else {
-      console.log('Email sent: ' + info.response);
-    }
-  });
+  transporter.sendMail(mailOptions)
+    .then(info => res.json({success : true, info : info}))
+    .catch(err => res.json({success : false, error : err}))
 
 })
 

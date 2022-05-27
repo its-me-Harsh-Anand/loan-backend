@@ -26,13 +26,6 @@ app.use("/verify", require("./routes/verify"));
 app.use("/user", require("./routes/user"));
 app.use("/message", require("./routes/message"));
 app.use("/email", require("./routes/email"))
-app.use(function (req, res, next) {
-  //Enabling CORS
-  res.header("Access-Control-Allow-Origin", "true");
-  res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, x-client-key, x-client-token, x-client-secret, Authorization");
-    next();
-  });
 
 // Setting Route
 app.get('/', (req, res)=>{
