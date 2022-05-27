@@ -21,7 +21,20 @@ router.route("/mobile/:number").get((req, res) => {
 // Finding user by id
 router.route('/:id').get((req, res)=>{
   User.findById(req.params.id)
-  .then(user => res.json(user))
+  .then(user => {
+    const returnUser = {
+      user_fname : user.user_fname,
+      user_mobile : user.user_mobile,
+      user_email : user.user_email,
+      loan_amount : user.loan_amount,
+      loan_registration_fee : user.loan_registration_fee,
+      loan_tenure : user.loan_tenure,
+      loan_type : user.loan_type,
+      loan_interest_rate : user.loan_interest_rate,
+      loan_emi : user.loan_emi,
+    }
+    return res.json(returnUser)
+  })
   .catch(err => res.json({message: "User not found", stat: false, error: err}))
 })
 

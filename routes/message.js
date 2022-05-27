@@ -15,12 +15,12 @@ router.route("/sendmessage").post((req, res) => {
       from: "+19403705935",
       to: `+91${req.body.to}`
     })
-    .then(() => {
-      res.send(JSON.stringify({ success: true }));
+    .then((res) => {
+      res.send(JSON.stringify({ success: true, info : res.data }));
     })
     .catch((err) => {
       console.log(err);
-      res.send(JSON.stringify({ success: false }));
+      res.send(JSON.stringify({ success: false, info : err }));
     });
   
 });
