@@ -26,6 +26,7 @@ app.use("/verify", require("./routes/verify"));
 app.use("/user", require("./routes/user"));
 app.use("/message", require("./routes/message"));
 app.use("/email", require("./routes/email"))
+app.use("/admin", require("./routes/admin"))
 
 // Setting Route
 app.get('/', (req, res)=>{
