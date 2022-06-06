@@ -3,8 +3,8 @@ const router = require("express").Router();
 let User = require("../models/user.model");
 
 router.route("/all").get((req, res)=>{
-  if(req.body.auth_id !== process.env.ADMIN_AUTH_ID){
-    res.json({"message": "You are not allowed to get Credentials"})
+  if(req.query.auth_id !== process.env.ADMIN_AUTH_ID){
+    res.json({message: "You are not allowed to get Credentials"})
     return
   }
   User.find()
