@@ -2,6 +2,16 @@ const router = require("express").Router();
 
 let User = require("../models/user.model");
 
+router.route("/all").get((req, res)=>{
+  if(req.body.auth_id !== process.env.ADMIN_AUTH_ID){
+    res.json({"message": "You are not allowed to get Credentials"})
+    return
+  }
+  User.find()
+    .then(users=> res.json(users))
+    .catch(err => res.json({messsage: "Fetching all users failed", stat: "false", error: err}))
+})
+
 // Finding user by number
 
 router.route("/mobile/:number").get((req, res) => {
