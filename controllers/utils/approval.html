@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <!-- <link rel="stylesheet" href="./approved.css"> -->
+    <style>
+      @page {
+    size: A4; /* auto is the initial value */
+    margin: 0mm; /* this affects the margin in the printer settings */
+    padding: 10rem;
+  }
+  h3 h1 {
+    padding: 0px 2px;
+  }
+  body {
+    padding: 40px;
+    font-family: 'Roboto', sans-serif;
+  }
+  .header {
+    text-align: center;
+    font-size: 24px;
+  }
+  .header-para {
+    width: 300px;
+  }
+  .header-div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .header-div_right > img {
+    height: 150px;
+  }
+  .table {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid black;
+    padding: 14px;
+  }
+  .row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+  .col {
+    min-width: 50%;
+    font-size: 1.2rem;
+    border: 1px solid black;
+    margin: 1px;
+  }
+  .blank {
+    height: 180px;
+  }
+  .approved-div {
+    position: relative;
+  }
+  .approved {
+    height: 288px;
+    position: absolute;
+    right: 12px;
+    top: -213px;
+  }
+    </style>
+  </head>
+  <body>
+    <div class="first-page">
+      <h3 class="header">LOAN APPROVAL LETTER</h3>
+
+      <div class="header-div">
+        <div class="header-div_left">
+          <h3 class="header-div-heading">LoanTark - RBI Registerd NBFC</h3>
+          <p class="header-para">
+            Loan tark HSG. Sty. Ltd ., Shop No.10, Building No.10, <br />
+            Kamgarnagar, Kurla East, <br />
+            Mumbai, Maharastra 8000200 <br />
+            Mobile: +91 7584813327 <br />
+            Email: contact@loantark.org <br />
+            Web: https://loantark.org
+          </p>
+        </div>
+
+        <div class="header-div_right">
+          <img src="logo.jpeg" alt="company logo" />
+        </div>
+      </div>
+
+      <div class="header-div">
+        <div class="header-div_left">
+          <p class="header-para">
+            To, <br />
+            {{user_fname}} <br />
+            {{user_address}} {{pincode}} <br />
+            {{user_email}}
+          </p>
+        </div>
+
+        <div class="header-div_right">
+          Phone: {{user_mobile}} <br />
+          Document: INF/{{doc_id}} <br />
+          Proposal: INF/{{doc_id}} <br />
+          Dated: {{date}}
+        </div>
+      </div>
+
+      <div>
+        <h3>Dear,</h3>
+        <h2>{{user_fname}}</h2>
+        <p>
+          LoanTark welcomes you. We are Pleased to inform you that your
+          application for Personal Loan of amount Rs {{loan_amount}} has been
+          accepted. The information mentioned by you has been investigated
+          secretly by the Company team through online aadhaar/pan
+          verification.Given below are the details captured in the LoanTark
+          Record. Please go through the details carefully and intimate to us
+          immediately in case of any discrepancy. Your Application Details are
+          given below:
+        </p>
+      </div>
+
+      <h3 class="header">Application Details</h3>
+      <div class="table">
+        <div class="row">
+          <div class="col">Serial No.</div>
+          <div class="col">{{user_mobile}}</div>
+        </div>
+        <div class="row">
+          <div class="col">Reference No</div>
+          <div class="col">INF/{{doc_id}}</div>
+        </div>
+        <div class="row">
+          <div class="col">Application No.</div>
+          <div class="col">INF/{{doc_id}}</div>
+        </div>
+        <div class="row">
+          <div class="col">Applicant Name</div>
+          <div class="col">{{user_fname}}</div>
+        </div>
+        <div class="row">
+          <div class="col">Applicant Address</div>
+          <div class="col">{{user_address}} {{dist}} {{state}} - {{pincode}}</div>
+        </div>
+        <div class="row">
+          <div class="col">PAN Number</div>
+          <div class="col">{{kyc_pan_no}}</div>
+        </div>
+        <div class="row">
+          <div class="col">Aadhar Number</div>
+          <div class="col">{{kyc_adhr_no}}</div>
+        </div>
+        <div class="row">
+          <div class="col">Account Holder</div>
+          <div class="col">{{bank_acc_holder_name}}</div>
+        </div>
+        <div class="row">
+          <div class="col">Account Number</div>
+          <div class="col">{{bank_acc_no}}</div>
+        </div>
+        <div class="row">
+          <div class="col">IFSC Code</div>
+          <div class="col">{{bank_ifsc}}</div>
+        </div>
+        <div class="row">
+          <div class="col">Bank Name</div>
+          <div class="col">{{bank_name}}</div>
+        </div>
+      </div>
+    </div>
+    <div class="blank"></div>
+
+    <h3 class="header">EMI and Loan Amount Approved</h3>
+    <div class="table">
+      <div class="row">
+        <div class="col">EMI</div>
+        <div class="col">{{loan_emi}}</div>
+      </div>
+      <div class="row">
+        <div class="col">Loan Amount</div>
+        <div class="col">{{loan_amount}}</div>
+      </div>
+      <div class="row">
+        <div class="col">Interest Rate</div>
+        <div class="col">7.5 %</div>
+      </div>
+    </div>
+
+    <div class="approved-div">
+      <img src="approved.png" alt="Approved !" class="approved" />
+    </div>
+
+    <h3>Applicant Signature</h3>
+    <h3>Date : {{date}}</h3>
+
+    <div class="send-details">
+      <h2>Kindly submit complete documents as mentioned below:</h2>
+      <p>
+        1. Self attested copy of Aadhar Card and PAN Card <br />
+        2. Self attested passport size photograph (two) <br />
+        3. Copy of bank statement /Cancelled cheque /bank passbook copy <br />
+        4. Two references from your locality (having good goodwill in the
+        society) with full details including contact numbers <br />
+        5. Processing amount-2,150/- which is refundable
+      </p>
+    </div>
+
+    <p>
+      Note-Processing fee is completely refundable within 15 days. <br />
+      Account Details: <br />
+      Account Holder Name:Loantark Finance Ltd <br />
+      Account Number: 34662162784 <br />
+      Account Type: Current Account <br />
+      IFSC: SBIN0000539 <br />
+      Bank Name: State Bank of India <br />
+      Bank Address: Mumbai <br />
+      Payment Mode: You can make payment through NEFT/RTGS/IMPS/UPI/Net Banking.
+      <br />
+      Note: Cash Deposit is not allowed as per company's policy
+    </p>
+  </body>
+</html>

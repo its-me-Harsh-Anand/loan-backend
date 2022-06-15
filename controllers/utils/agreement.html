@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>agreement-letter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      @page {
+        size: A4;
+        margin: 0mm;
+        padding: 10rem;
+      }
+      h3 h1 {
+        padding: 0px 2px;
+      }
+      body {
+        padding: 40px;
+        font-family: "Roboto", sans-serif;
+      }
+      .image {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-top: 30px;
+      }
+      .image > img {
+        width: 100%;
+      }
+      .first-page {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        margin-top: 25px;
+      }
+      .first-page h3 {
+        font-size: 24px;
+        font-weight: bold;
+        margin: 10px;
+      }
+      .first-page p {
+        text-align: center;
+      }
+      .second-page {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        flex-direction: column;
+        margin-top: 25px;
+      }
+      .space {
+        height: 100px;
+      }
+      .second-page h3 {
+        margin: 10px 0px;
+      }
+      .sign{
+        display: flex;
+        justify-content: space-between;
+        margin-top: 30px;
+      }
+      .sign-me {
+        width: 200px;
+        height: 20px;
+        border-bottom: 2px solid black;
+      }
+      .sign-bank{
+        position: relative;
+        margin-top: 40px;
+      }
+      .sign-bank img {
+        position: absolute;
+    top: -40px;
+    right: 30px;
+    height: 230px;
+      }
+      .sign-bank h3{
+        margin-right: 40px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="image">
+      <img src="stamp.jpg" alt="RS. 100 stamp of GOI" />
+    </div>
+
+    <div class="first-page">
+      <h3>LOAN AGREEMENT</h3>
+      <h3>
+        THIS LOAN AGREEMENT (this "Agreement") dated this {{day}} day of {{monthName}} ,{{year}}
+      </h3>
+      <h3>BETWEEN</h3>
+      <p>
+        Loan tark office at HSG. Sty. Ltd ., Shop No.10, Building No.10,
+        Kamgarnagar 400024 Kurla East, Maharashtra, India (the "Lender")
+      </p>
+      <h3>OF THE FIRST PART</h3>
+      <h3>AND</h3>
+      <p>
+        {{user_fname}} of {{user_address}}, {{user_email}} Document :
+        LTK/{{doc_id}} Proposal : LTK/{{doc_id}}
+      </p>
+      <p>(the "Borrower")</p>
+      <h3>OF THE SECOND PART</h3>
+      <p>
+        IN CONSIDERATION OF the Lender loaning certain monies (the "Loan") to
+        the Borrower, and the Borrower repaying the Loan to the Lender, both
+        parties agree to keep, perform and fulfil the promises and conditions
+        set out in this Agreement:
+      </p>
+    </div>
+
+    <div class="space"></div>
+    <div class="second-page">
+      <h3>Loan Amount & Interest</h3>
+      <p>
+        1. The Lender promises to loan Rs {{loan_amount}} to the Borrower and the
+        Borrower promises to repay this principal amount to the Lender, with
+        interest payable on the unpaid principal at the rate of 7.5% per annum,
+        calculated yearly not in advance, beginning on {{monthName}} {{day}}, {{year}}.
+      </p>
+      <h3>Payment</h3>
+      <p>
+        2. This Loan will be repaid in consecutive monthly instalments of
+        principal and interest on the first day of each month commencing the
+        month following the beginning of the loan under this Agreement and
+        continuing until {{monthName}} {{day}} {{year}} with the balance then owing under this
+        Agreement being paid at that time.
+      </p>
+      <h3>Default</h3>
+      <p>
+        3. Notwithstanding anything to the contrary in this Agreement, if the
+        Borrower defaults in the performance of any obligation under this
+        Agreement, then the Lender may declare the principal amount owing and
+        interest due under this Agreement at that time to be immediately due and
+        payable.
+      </p>
+      <p>
+        4. Further, if the Lender declares the principal amount owing under this
+        Agreement to be immediately due and payable, and the Borrower fails to
+        provide full payment, interest at the rate of 1.00 per cent per annum,
+        calculated yearly not in advance, will be charged on the outstanding
+        amount, commencing the day the principal amount is declared due and
+        payable, until full payment is received by the Lender.
+      </p>
+      <h3>Governing Law</h3>
+      <p>
+        5. This Agreement will be construed in accordance with and governed by
+        the laws of the State of Maharashtra.
+      </p>
+      <p>
+        6. The Borrower shall be liable for all costs, expenses and expenditures
+        incurred including, without limitation, the complete legal costs of the
+        Lender incurred by enforcing this Agreement as a result of any default
+        by the Borrower and such costs will be added to the principal then
+        outstanding and shall be due and payable by the Borrower to the Lender
+        immediately upon demand of the Lender.
+      </p>
+      <h3>Binding Effect</h3>
+      <p>
+        7. This Agreement will pass to the benefit of and be binding upon the
+        respective heirs, executors, administrators, successors and permitted
+        assigns of the Borrower and Lender. Borrower wa ives presentment for
+        payment, notice of non-payment, protest, and notice of protest.
+      </p>
+      <h3>Amendments</h3>
+      <p>
+        8. This Agreement may only be amended or modified by a written
+        instrument executed by both the Borrower and the Lender.
+      </p>
+    </div>
+
+    <div class="space"></div>
+    <div class="second-page">
+      <h3>Severability</h3>
+      <p>
+        9. The clauses and paragraphs contained in this Agreement are intended
+        to be read and construed independently of each other. If any term,
+        covenant, condition or provision of this Agreement is held by a court of
+        competent jurisdiction to be invalid, void or unenforceable, it is the
+        parties intention that such provision be reduced in scope by the court
+        only to the extent deemed necessary by that court to render the
+        provision reasonable and enforceable and the remainder of the provisions
+        of this Agreement will in no way be affected, impaired or invalidated as
+        a result.
+      </p>
+      <h3>General Provisions</h3>
+      <p>
+        10. Headings are inserted for the convenience of the parties only and
+        are not to be considered when interpreting this Agreement. Words in the
+        singular mean and include the plural and vice versa. Words in the
+        masculine mean and include the feminine and vice versa. Entire Agreement
+      </p>
+      <p>
+        11. This Agreement constitutes the entire agreement between the parties
+        and there are no further items or provisions, either oral or otherwise.
+        IN WITNESS WHEREOF, the parties have duly affixed their signatures under
+        hand and seal on this {{day}} day of {{monthName}}, {{year}}
+      </p>
+    </div>
+
+    <div class="sign">
+      <div>
+        <h3>SIGNED, SEALED, AND DELIVERED</h3>
+        <p>this {{day}} day of {{monthName}}, {{year}}</p>
+      </div>
+
+      <div style="align-self: flex-end;">
+        <div class="sign-me">
+
+        </div>
+        <p style="text-align: right;">
+            {{user_fname}}
+        </p>
+      </div>
+    </div>
+
+    <div class="sign sign-bank">
+        <div>
+            <h3>SIGNED, SEALED, AND DELIVERED</h3>
+            <p>this {{day}} day of {{monthName}}, {{year}}</p>
+        </div>
+        <h3>
+            LOANTARK
+        </h3>
+        <img src="approved.png" alt="Loan Approved" />
+    </div>
+  </body>
+</html>
